@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Link from '../components/Link/Link'
+import List from '../components/List/List'
 import './Profile.css'
 
 class Profile extends Component {
@@ -24,20 +25,21 @@ class Profile extends Component {
 
     render() {
         const { data: { avatar_url, html_url, repos_url, name, company, location, email, bio }, loading } = this.state;
+        const items = [
+            { label: 'html_url', value: <Link url={html_url} title='Github URL'/>},
+            { label: 'name', value: name },
+            { label: 'repos_url', value: repos_url },
+            { label: 'company', value: company },
+            { label: 'location', value: location },
+            { label: 'email', value: email },
+            { label: 'bio', value: bio }
+        ]
         if(loading) {
             return (<div>Loading...</div>)
         }
         return (<div className='Profile-container'>
                 <img className='Profile-avatar' src={avatar_url} alt='avatar'/>
-                <ul>
-                    <li><strong>html_url: {html_url}</strong>&nbsp;<Link url={html_url} title='Github URL'/></li>
-                    <li>repos_url: {repos_url}</li>
-                    <li>name: {name}</li>
-                    <li>company: {company}</li>
-                    <li>location: {location}</li>
-                    <li>email: {email}</li>
-                    <li>bio: {bio}</li>
-                </ul>
+                <List items={items}/>
         </div>)
     }
 }
