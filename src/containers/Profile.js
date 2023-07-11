@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
 import Link from '../components/Link/Link'
 import List from '../components/List/List'
-import './Profile.css'
+import styled from 'styled-components'
 
+const ProfileWrapper = styled.div`
+    width: 50%;
+    margin: 10px auto;
+`
+const Avatar = styled.img`
+    width: 150px;
+`
 class Profile extends Component {
     constructor() {
         super()
@@ -37,10 +44,10 @@ class Profile extends Component {
         if(loading) {
             return (<div>Loading...</div>)
         }
-        return (<div className='Profile-container'>
-                <img className='Profile-avatar' src={avatar_url} alt='avatar'/>
-                <List items={items}/>
-        </div>)
+        return (<ProfileWrapper>
+                    <Avatar src={avatar_url} alt='avatar'/>
+                    <List items={items}/>
+                </ProfileWrapper>)
     }
 }
 
