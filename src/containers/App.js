@@ -2,14 +2,17 @@ import React from 'react';
 import logo from '../logo.svg'
 import Header from '../components/header/header'
 import Profile from '../containers/Profile'
-import './App.css';
+import styled from 'styled-components'
 
+const AppWrapper = styled.div`
+  text-align: center;
+`
 function App() {
   return (
-    <div className="App">
+    <AppWrapper>
       <Header logo={logo}/>
       <Profile/>
-    </div>
+    </AppWrapper>
   );
 }
 

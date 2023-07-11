@@ -1,15 +1,17 @@
-import './Link.css'
+import styled from 'styled-components'
 
+const InnerLink = styled.a`
+ color: #61dafb;
+`;
 const Link = ({ url, title }) => {
     return (
-        <a
-            className="App-link"
+        <InnerLink
             href={url}
             target="_blank"
             rel="noopener noreferrer"
       >
         {title}
-      </a>
+      </InnerLink>
     )
 }
 
