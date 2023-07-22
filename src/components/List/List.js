@@ -14,9 +14,16 @@ const ListContainer = styled.ul`
   text-align: left;
   padding: 0
 `
-const List = ({ items }) => (
+const Title = styled.h2`
+ padding: 10px 0;
+ border-bottom: 1px solid lightgray
+`
+const List = ({ title, items }) => (
+    <>
+    <Title>{title}</Title>
     <ListContainer>
         {items.map(({label, value}) => <ListItem key={label}><Label>{label}:</Label> {value}</ListItem>)}
     </ListContainer>
+    </>
 )
 export default List;
